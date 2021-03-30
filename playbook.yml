@@ -10,10 +10,10 @@
    - name: start docker
      service: name=docker state=started
    - name: clone repo
-     git: repo=https://github.com/edureka-devops/projCert.git dest=/tmp/gitrepo
+     git: repo=https://github.com/samrakchanpokhrel/finalproj.git  dest=/tmp
    - name: login docker hub
      command: docker login --username samrakchanpokhrel --password Chelseafc@18
    - name: Building dockerfile
-     command: docker build -t myproj gitrepo/.
+     command: docker build . -t myproj -f tmp/finalproj/Dockerfile
    - name: start container
      command: docker run -itd -p8181:80 --name c1 samrakchanpokhrel/myproj
