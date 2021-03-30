@@ -1,0 +1,19 @@
+---
+- hosts: webservers
+  become: true
+  become_user: root
+  tasks:
+   - name: Install git
+     yum: name=git state=present
+   - name: Install docker
+     yum: name=docker state=present
+   - name: start docker
+     service: name=docker state=started
+   - name: clone repo
+     git: repo=https://github.com/edureka-devops/projCert.git dest=/tmp/gitrepo
+   - name: login docker hub
+     command: docker login --username samrakchanpokhrel --password Chelseafc@18
+   - name: Building dockerfile
+     command: docker build -t myproj gitrepo/.
+   - name: start container
+     command: docker run -itd -p8181:80 --name c1 samrakchanpokhrel/myproj
