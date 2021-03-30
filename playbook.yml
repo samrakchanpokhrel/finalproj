@@ -14,6 +14,6 @@
    - name: login docker hub
      command: docker login --username samrakchanpokhrel --password Chelseafc@18
    - name: Building dockerfile
-     command: docker build . -t myproj -f tmp/test/finalproj/Dockerfile
+     command: docker build . -t myproj -f /tmp/test/finalproj/Dockerfile
    - name: start container
      command: docker run -itd -p8181:80 --name c1 samrakchanpokhrel/myproj
