@@ -18,4 +18,4 @@
      args:
        chdir: /tmp/test
    - name: start container
-     command: docker run -itd -p8181:80 --name c1 samrakchanpokhrel/myproj
+     command: docker run -itd -p8181:80 --name c1 myproj
