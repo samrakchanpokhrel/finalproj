@@ -10,10 +10,10 @@
    - name: start docker
      service: name=docker state=started
    - name: clone repo
-     git: repo=https://github.com/samrakchanpokhrel/finalproj.git  dest=/tmp
+     git: repo=https://github.com/samrakchanpokhrel/finalproj.git  dest=/tmp/test
    - name: login docker hub
      command: docker login --username samrakchanpokhrel --password Chelseafc@18
    - name: Building dockerfile
-     command: docker build . -t myproj -f tmp/finalproj/Dockerfile
+     command: docker build . -t myproj -f tmp/test/finalproj/Dockerfile
    - name: start container
      command: docker run -itd -p8181:80 --name c1 samrakchanpokhrel/myproj
